@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 13:36:29 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/05 13:19:36 by araqioui         ###   ########.fr       */
+/*   Created: 2023/08/05 08:59:45 by araqioui          #+#    #+#             */
+/*   Updated: 2023/08/05 11:20:36 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ZOMBIE_HPP_
-#define _ZOMBIE_HPP_
+#include "Zombie.hpp"
 
-#include <iostream>
+Zombie	*zombieHorde(int N, std::string name)
+{
+	Zombie	*zombies;
+	int		i;
 
-class Zombie {
-	private:
-		std::string	name;
-	
-	public:
-		Zombie(std::string n);
-		~Zombie(void);
-		void	announce(void);
-};
-
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif /* _ZOMBIE_HPP_ */
+	zombies = new Zombie[N];
+	if (!zombies)
+	{
+		std::cout << "Error: Dynamic allocation failed" << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+	i = -1;
+	while (++i < NBZOMBIES)
+		zombies[i].setName(name);
+	return (zombies);
+}

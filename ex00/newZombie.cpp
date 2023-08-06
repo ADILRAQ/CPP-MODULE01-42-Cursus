@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 13:36:22 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/04 14:46:10 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/05 09:43:51 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 Zombie  *newZombie(std::string name)
 {
-    Zombie  *newZombie = new Zombie(name);
+	Zombie  *newZombie = new Zombie(name);
 
-    return (newZombie);
+	if (!newZombie)
+	{
+		std::cout << "Error: Dynamic allocation failed" << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+	return (newZombie);
 }

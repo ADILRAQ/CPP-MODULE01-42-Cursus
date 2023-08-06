@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 13:36:29 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/05 13:19:36 by araqioui         ###   ########.fr       */
+/*   Created: 2023/08/05 08:59:48 by araqioui          #+#    #+#             */
+/*   Updated: 2023/08/05 11:21:26 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 
 #include <iostream>
 
+# define NBZOMBIES 6
+
 class Zombie {
 	private:
 		std::string	name;
-	
+
 	public:
-		Zombie(std::string n);
 		~Zombie(void);
 		void	announce(void);
+		void	setName(std::string n);
 };
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif /* _ZOMBIE_HPP_ */

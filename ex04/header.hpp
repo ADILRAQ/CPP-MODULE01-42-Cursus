@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   header.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 13:36:29 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/05 13:19:36 by araqioui         ###   ########.fr       */
+/*   Created: 2023/08/06 17:38:13 by araqioui          #+#    #+#             */
+/*   Updated: 2023/08/06 18:42:33 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ZOMBIE_HPP_
-#define _ZOMBIE_HPP_
+#ifndef _HEADER_HPP_
+#define _HEADER_HPP_
 
 #include <iostream>
+#include <fstream>
 
-class Zombie {
-	private:
-		std::string	name;
-	
-	public:
-		Zombie(std::string n);
-		~Zombie(void);
-		void	announce(void);
-};
+int			openFiles(std::fstream &inFile, std::fstream &outFile, std::string fileName);
+std::string	&treatLine(std::string &line, const std::string s1, const std::string s2);
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif /* _ZOMBIE_HPP_ */
+#endif /* _HEADER_HPP_ */
