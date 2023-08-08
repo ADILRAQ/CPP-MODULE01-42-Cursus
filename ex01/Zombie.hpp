@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 08:59:48 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/05 11:21:26 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:45:26 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-# define NBZOMBIES 6
+# define NBZOMBIES 4
 
 class Zombie {
 	private:
@@ -23,8 +23,9 @@ class Zombie {
 
 	public:
 		~Zombie(void);
-		void	announce(void);
-		void	setName(std::string n);
+		void		announce(void);
+		void		setName(std::string n);
+		std::string	getName(void);
 };
 
 Zombie	*zombieHorde(int N, std::string name);

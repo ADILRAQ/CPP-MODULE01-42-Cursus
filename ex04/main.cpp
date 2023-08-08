@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 13:25:51 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/06 18:41:03 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/08 11:28:13 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ static void	fileTreatment(char **av)
 
 	if (!openFiles(inFile, outFile, av[1]))
 		return ;
-	while (std::getline(inFile, line))
+	while (true)
 	{
-		treatLine(line, av[2], av[3]) += '\n';
-		std::cout << "Line: " << line;
+		if (readLine(inFile, line))
+			treatLine(line, av[2], av[3]);
+		else
+			break ;
+		outFile << line;
 	}
+	inFile.close();
+	outFile.close();
 }
 
 int	main(int ac, char **av)

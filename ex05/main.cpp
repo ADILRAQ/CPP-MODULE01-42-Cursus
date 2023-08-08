@@ -5,19 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 13:36:15 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/08 15:15:16 by araqioui         ###   ########.fr       */
+/*   Created: 2023/08/07 10:47:27 by araqioui          #+#    #+#             */
+/*   Updated: 2023/08/08 15:59:56 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-int	main(void)
+int	checkDigits(std::string str)
 {
-	Zombie	*zombie;
+	int	i;
 
-	zombie = newZombie("Z1");
-	zombie->announce();
-	randomChump("Z2");
-	delete zombie;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!('0' <= str[i] && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	main(int ac, char **av)
+{
+	Harl	obj;
+
+	if (ac == 2)
+	{
+		if (checkDigits(av[1]))
+			obj.complain(av[1]);
+		else
+			std::cout << "Error: av[1] isn't a valid number\n";
+	}
+	else
+		std::cout << "Error: Invalid number of arguments\n";
 }

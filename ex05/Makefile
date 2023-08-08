@@ -5,27 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/05 11:22:20 by araqioui          #+#    #+#              #
-#    Updated: 2023/08/08 11:12:17 by araqioui         ###   ########.fr        #
+#    Created: 2023/08/07 10:47:43 by araqioui          #+#    #+#              #
+#    Updated: 2023/08/07 13:39:08 by araqioui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = PointRef
+NAME = Harl
 
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm -f
+HEADER = Harl.hpp
+
+SRC = main Harl \
+
+OBJ = $(SRC:=.o)
 
 all: $(NAME)
 
-$(NAME): main.o
-	$(CC) $(FLAGS) main.o -o $@
+$(NAME): $(OBJ) $(HEADER)
+	$(CC) $(FLAGS) $(OBJ) -o $@
 
-main.o: main.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) $(FLAGS) -c $<
 
 clean:
-	@ $(RM) main.o
+	@ $(RM) $(OBJ)
 
 fclean: clean
 	@ $(RM) $(NAME)
