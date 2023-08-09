@@ -6,16 +6,16 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 15:11:32 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/08 15:56:41 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/09 08:22:24 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string n) : name(n), weapon(nullptr)
+HumanB::HumanB(std::string n) : name(n), weapon(NULL)
 {
 	// name = n;
-	// weapon = nullptr;
+	// weapon = NULL;
 }
 
 void	HumanB::attack(void)

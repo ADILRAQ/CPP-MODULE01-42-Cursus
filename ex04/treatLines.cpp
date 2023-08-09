@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:56:21 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/07 10:40:30 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/09 08:57:36 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,26 @@ int	readLine(std::fstream &inFile, std::string &line)
 	return (0);
 }
 
-std::string	&treatLine(std::string &line, const std::string s1, const std::string s2)
+void	treatLine(std::string &line, const std::string s1, const std::string s2)
 {
 	std::string	helpStr;
 	size_t		pos;
+	size_t		len;
 
-	while (true)
+	pos = 0;
+	len = 0;
+	if (!s1.empty())
 	{
-		pos = line.find(s1);
-		if (pos == std::string::npos)
-			break ;
-		helpStr = line.substr(0, pos);
-		helpStr += s2;
-		line = helpStr + &line[pos + s1.length()];
+		while (true)
+		{
+			pos = line.find(s1, pos + len);
+			std::cout << "POS: " << pos << std::endl;
+			if (pos == std::string::npos)
+				break ;
+			helpStr = line.substr(0, pos);
+			helpStr += s2;
+			line = helpStr + &line[pos + s1.length()];
+			len = s2.length();
+		}
 	}
-	return (line);
 }
