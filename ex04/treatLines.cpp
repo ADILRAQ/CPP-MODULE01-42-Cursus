@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:56:21 by araqioui          #+#    #+#             */
-/*   Updated: 2023/08/09 08:57:36 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/08/10 08:42:21 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	treatLine(std::string &line, const std::string s1, const std::string s2)
 		while (true)
 		{
 			pos = line.find(s1, pos + len);
-			std::cout << "POS: " << pos << std::endl;
 			if (pos == std::string::npos)
 				break ;
 			helpStr = line.substr(0, pos);
